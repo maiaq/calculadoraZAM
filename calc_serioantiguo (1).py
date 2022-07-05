@@ -1,14 +1,13 @@
 from tkinter import *
 from functools import partial
-from o import Aplicacion
 
 boton = ""
 
 def digito(num):
     global boton
     boton = boton + str(num)
-    calculo.set(boton) 
-    
+    calculo.set(boton)
+
 def igual():
     try:
         global boton
@@ -32,11 +31,49 @@ def ventanachica(label):
 
 
 if __name__ == "__main__":
-    pantPrincipal = Aplicacion()
-    ventana = pantPrincipal.pantalla
-    calculo = StringVar()
-    pantPrincipal.ventana1.resizable(height=0, width=0)
+    ventana = Tk()
+    ventana.configure(background="light pink")
+    ventana.title("Calculadora ZAM")
+    ventana.geometry("285x190")
+    ventana.resizable(width=False, height=False)
+    barraMenu=Menu(ventana)
+    mnuArchivo=Menu(barraMenu, tearoff=0)
+    mnuConfig=Menu(barraMenu, tearoff=0)
+    mnuHistorial=Menu(barraMenu, tearoff=0)
+    mnuUsuario=Menu(barraMenu, tearoff=0)
     
+
+
+
+    mnuArchivo.add_command(label="Tamaño", command=partial(ventanachica, "640x480"))  
+    mnuArchivo.add_command(label="color")
+    mnuArchivo.add_separator()
+    mnuArchivo.add_command(label="Salir")
+ 
+
+    mnuConfig.add_command(label="Tamaño letra",command=partial(prueba, "tamaño letra"))
+    mnuConfig.add_command(label="Direccion",command=partial(prueba, "direccion"))
+    mnuConfig.add_command(label="tipografia",command=partial(prueba, "tipografia"))
+    mnuConfig.add_command(label="color")
+    mnuConfig.add_separator()
+    mnuConfig.add_command(label="Salir")
+                          
+    mnuHistorial.add_command(label="Resultados")  
+    mnuHistorial.add_separator()
+    mnuHistorial.add_command(label="Salir")
+
+    mnuUsuario.add_command(label="Registrarse")
+    mnuUsuario.add_command(label="iniciar sesion")
+    mnuUsuario.add_command(label="cerrar sesion")
+    mnuUsuario.add_separator()
+    mnuUsuario.add_command(label="Salir")
+
+    barraMenu.add_cascade(label="Ventana",menu=mnuArchivo)
+    barraMenu.add_cascade(label="Aspecto",menu=mnuConfig)
+    barraMenu.add_cascade(label="Historial",menu=mnuHistorial)
+    barraMenu.add_cascade(label="Usuario",menu=mnuUsuario)
+    ventana.config(menu=barraMenu)
+    calculo = StringVar()
     datos = Entry(ventana, font=("Seven Segment",12), textvariable=calculo, justify="right")
     datos.grid(columnspan=10, ipadx=50)
     i = 0
@@ -64,4 +101,4 @@ if __name__ == "__main__":
                    command=limpiar, height=2, width=5)
     limpiar.grid(row=5, column='1')
 
-    pantPrincipal.ventana1.mainloop()
+    ventana.mainloop()

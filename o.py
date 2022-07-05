@@ -101,14 +101,11 @@ class Aplicacion:
     def cyan2(self):
         self.ventana1.configure(background="cyan2")
 
-    def khaki (self):
+    def khaki(self):
         self.ventana1.configure(background="khaki")
 
     def lightslateblue (self):
         self.ventana1.configure(background="light slate blue")
-        
+              
 
-    
-   
-        
 aplicacion1=Aplicacion()
