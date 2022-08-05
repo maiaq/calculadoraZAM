@@ -1,6 +1,7 @@
 from tkinter import *
 import os
 
+
 def ventana_inicio():
     global ventana_principal
     pestas_color="DarkGrey"
@@ -19,7 +20,7 @@ def ventana_inicio():
 
 def registro():
     global ventana_registro
-    ventana_registro = Toplevel(ventana_principal)
+    ventana_registro = Tk()
     ventana_registro.title("Registro")
     ventana_registro.geometry("300x250")
  
@@ -46,7 +47,7 @@ def registro():
 
 def login():
     global ventana_login
-    ventana_login = Toplevel(ventana_principal)
+    ventana_login = Tk()
     ventana_login.title("Iniciar sesion")
     ventana_login.geometry("300x250")
     Label(ventana_login, text="Introduzca nombre de usuario y contraseña", bg="skyblue" ).pack()
@@ -154,4 +155,3 @@ def registro_usuario():
     Label(ventana_registro, text="Registro completado con éxito", fg="green", font=("calibri", 11)).pack()
  
  
-ventana_inicio()

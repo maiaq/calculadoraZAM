@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+import usuarios
 
 
 class Aplicacion:
@@ -57,9 +58,9 @@ class Aplicacion:
         menubar1.add_cascade(label="historial", menu=opciones4)
         
         submenu8=tk.Menu(menubar1, tearoff=0)
-        opciones5 .add_command(label="cerrar")
-        opciones5.add_command(label="iniciar sesion")
-        opciones5.add_cascade(label="registrarse")                   
+        opciones5 .add_command(label="cerrar sesion")
+        opciones5.add_command(label="iniciar sesion", command=usuarios.login)
+        opciones5.add_command(label="registrarse", command=usuarios.registro)                   
         menubar1.add_cascade(label="Usuario", menu=opciones5)
         
         self.ventana1.mainloop()
