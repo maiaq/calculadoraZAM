@@ -1,7 +1,9 @@
 import tkinter as tk
+import os
+
 
 class Aplicacion:
-    def __init__(self):
+    def __init__(self):    
         self.ventana1=tk.Tk()
         menubar1 = tk.Menu(self.ventana1)
         self.ventana1.config(menu=menubar1)
@@ -55,15 +57,13 @@ class Aplicacion:
         menubar1.add_cascade(label="historial", menu=opciones4)
         
         submenu8=tk.Menu(menubar1, tearoff=0)
-        opciones5 .add_command(label="cerrar sesion")
+        opciones5 .add_command(label="cerrar")
         opciones5.add_command(label="iniciar sesion")
         opciones5.add_cascade(label="registrarse")                   
         menubar1.add_cascade(label="Usuario", menu=opciones5)
         
-        self.pantalla = tk.Frame(self.ventana1)
-        self.pantalla.pack()
+        self.ventana1.mainloop()
         
-
         
                          
                                                                                  
@@ -101,11 +101,11 @@ class Aplicacion:
     def cyan2(self):
         self.ventana1.configure(background="cyan2")
 
-    def khaki(self):
+    def khaki (self):
         self.ventana1.configure(background="khaki")
 
     def lightslateblue (self):
         self.ventana1.configure(background="light slate blue")
-              
-
+   
+           
 aplicacion1=Aplicacion()

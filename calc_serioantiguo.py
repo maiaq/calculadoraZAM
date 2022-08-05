@@ -1,5 +1,5 @@
 from tkinter import *
-from functools import partial
+from functools import partial 
 
 boton = ""
 
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     ventana.config(menu=barraMenu)
     calculo = StringVar()
     datos = Entry(ventana, font=("Seven Segment",12), textvariable=calculo, justify="right")
-    datos.grid(columnspan=10, ipadx=50)
+    datos.grid(columnspan=10, ipadx=32)
     i = 0
     for fila in range(2,5):
         for columna in range(0,3):
