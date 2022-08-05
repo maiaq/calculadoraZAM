@@ -6,6 +6,7 @@ import usuarios
 class Aplicacion:
     def __init__(self):    
         self.ventana1=tk.Tk()
+        self.calculo = tk.StringVar()
         menubar1 = tk.Menu(self.ventana1)
         self.ventana1.config(menu=menubar1)
         opciones2 = tk.Menu(menubar1, tearoff=0)
@@ -63,7 +64,6 @@ class Aplicacion:
         opciones5.add_command(label="registrarse", command=usuarios.registro)                   
         menubar1.add_cascade(label="Usuario", menu=opciones5)
         
-        self.ventana1.mainloop()
         
         
                          
@@ -109,4 +109,3 @@ class Aplicacion:
         self.ventana1.configure(background="light slate blue")
    
            
-aplicacion1=Aplicacion()
