@@ -1,10 +1,12 @@
 import tkinter as tk
 import os
 import usuarios
+from functools import partial
 
 
 class Aplicacion:
-    def __init__(self):    
+    def __init__(self):
+        self.lista_botones = []
         self.ventana1=tk.Tk()
         self.calculo = tk.StringVar()
         menubar1 = tk.Menu(self.ventana1)
@@ -15,7 +17,7 @@ class Aplicacion:
         opciones5 = tk.Menu(menubar1, tearoff=0)
         
         submenu2=tk.Menu(menubar1, tearoff=0 )
-        submenu2.add_command(label="Chico", command=self.tamano1)
+        submenu2.add_command(label="Chico", command=partial(self.tamano1))
         submenu2.add_command(label="Mediano", command=self.tamano2)
         submenu2.add_command(label="Grande", command=self.tamano3)
         opciones2.add_cascade(label="tamaños", menu= submenu2)
@@ -63,32 +65,29 @@ class Aplicacion:
         opciones5.add_command(label="iniciar sesion", command=usuarios.login)
         opciones5.add_command(label="registrarse", command=usuarios.registro)                   
         menubar1.add_cascade(label="Usuario", menu=opciones5)
-        
-        
-        
-                         
-                                                                                 
-    def ventanachica(self):
-        self.ventana1.geometry("640x480")
-
-    def ventanagrande(self):
-        self.ventana1.geometry("1024x800")
-
+ 
+    def recibirCalculadora(self, lista_botones, datos):
+        self.lista_botones = lista_botones
+        self.datosEntry = datos
+     
     def tamano1(self):
-        self.ventana1.geometry("1024x1024")
-
-    def tamano2(self):
-        self.ventana1.geometry("1280x1024")
-
-
-    def tamano1(self):
-        self.ventana1.geometry("500x500")
+        self.ventana1.geometry("432x250")
+        self.datosEntry.grid(columnspan=60, ipadx=110)
+        for i in self.lista_botones:
+            i.config(height=3, width=10)
+            
     
     def tamano2(self):
-        self.ventana1.geometry("900x900")
-
+        self.ventana1.geometry("530x423")
+        self.datosEntry.grid(columnspan=150, ipadx=160)
+        for i in self.lista_botones:
+            i.config(height=6, width=13)
+            
     def tamano3(self):
-        self.ventana1.geometry("1280x1024")
+        self.ventana1.geometry("730x490")
+        self.datosEntry.grid(columnspan=800, ipadx=400)
+        for i in self.lista_botones:
+            i.config(height=7, width=19)
         
     def violeta(self):
         self.ventana1.configure(background="purple")
@@ -107,5 +106,7 @@ class Aplicacion:
 
     def lightslateblue (self):
         self.ventana1.configure(background="light slate blue")
-   
-           
+
+
+if __name__ == "__main__":
+    print("hola")
