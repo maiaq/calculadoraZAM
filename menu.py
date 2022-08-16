@@ -23,12 +23,15 @@ class Aplicacion:
         opciones2.add_cascade(label="tamaños", menu= submenu2)
         
         submenu1=tk.Menu(menubar1, tearoff=0)
-        submenu1.add_command(label="violeta", command=self.violeta)
+        submenu1.add_command(label="mostaza", command=self.mostaza)
         submenu1.add_command(label="celeste", command=self.celeste)
         submenu1.add_command(label="rosa", command=self.rosa)
-        submenu1.add_command(label="cyan2", command=self.cyan2)
+        submenu1.add_command(label="rosy brown", command=self.rosy)
         submenu1.add_command(label="khaki", command=self.khaki)
         submenu1.add_command(label="light slate blue", command=self.lightslateblue)
+        submenu1.add_command(label="verde", command=self.verde)
+        submenu1.add_command(label="lavanda", command=self.lavanda)
+        submenu1.add_command(label="agua", command=self.agua)
         opciones2.add_cascade(label="Colores", menu= submenu1)
         
         menubar1.add_cascade(label="Botones", menu=opciones2)
@@ -89,10 +92,10 @@ class Aplicacion:
         for i in self.lista_botones:
             i.config(height=7, width=19)
         
-    def violeta(self):
+    def mostaza(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( bg="purple")
+            i.config( bg="orange3")
 
     def celeste(self):
         self.ventana1.configure
@@ -104,10 +107,10 @@ class Aplicacion:
         for i in self.lista_botones:
             i.config( bg="PaleVioletRed1")
            
-    def cyan2(self):
+    def rosy(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( bg="cyan2")
+            i.config( bg="rosy brown")
 
     def khaki (self):
         self.ventana1.configure
@@ -118,6 +121,22 @@ class Aplicacion:
         self.ventana1.configure
         for i in self.lista_botones:
             i.config( bg="light slate blue")
+            
+    def verde(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="DarkOliveGreen1")
+           
+    def lavanda(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="lavender")
+
+    def agua(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="CadetBlue1")
+         
 
 
 if __name__ == "__main__":
