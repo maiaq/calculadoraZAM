@@ -84,28 +84,40 @@ class Aplicacion:
             i.config(height=6, width=13)
             
     def tamano3(self):
-        self.ventana1.geometry("730x490")
+        self.ventana1.geometry("730x480")
         self.datosEntry.grid(columnspan=800, ipadx=400)
         for i in self.lista_botones:
             i.config(height=7, width=19)
         
     def violeta(self):
-        self.ventana1.configure(background="purple")
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="purple")
 
     def celeste(self):
-        self.ventana1.configure(background="skyblue")
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="skyblue")
 
     def rosa(self):
-        self.ventana1.configure(background="PaleVioletRed1")
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="PaleVioletRed1")
            
     def cyan2(self):
-        self.ventana1.configure(background="cyan2")
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="cyan2")
 
     def khaki (self):
-        self.ventana1.configure(background="khaki")
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="khaki")
 
     def lightslateblue (self):
-        self.ventana1.configure(background="light slate blue")
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg="light slate blue")
 
 
 if __name__ == "__main__":
