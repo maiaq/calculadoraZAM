@@ -14,7 +14,7 @@ class Calculadora:
         ventana.resizable(width=False, height=False)
         print("creando Calcu")
         self.calculo = menu.calculo
-        self.datos = Entry(ventana, font=("Seven Segment",12), textvariable=self.calculo, justify="left")
+        self.datos = Entry(ventana, font=("Seven Segment",12), textvariable=self.calculo, justify="center")
         self.datos.grid(columnspan=15, ipadx=32)
         i = 0
         boton0 = Button(ventana, text=' 0 ', fg='black', bg='white',

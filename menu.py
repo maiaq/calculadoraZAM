@@ -42,8 +42,8 @@ class Aplicacion:
         opciones3.add_cascade(label="Tamaño Letra", menu= submenu3)
         
         submenu4=tk.Menu(menubar1, tearoff=0)
-        submenu4.add_command(label="Derecha")
-        submenu4.add_command(label="Izquierda")
+        submenu4.add_command(label="Derecha", command=self.derecha)
+        submenu4.add_command(label="Izquierda", command=self.izquierda)
         opciones3.add_cascade(label="Direccion", menu= submenu4)
         
         submenu5=tk.Menu(menubar1, tearoff=0)
@@ -54,7 +54,7 @@ class Aplicacion:
         
         submenu6=tk.Menu(menubar1, tearoff=0)
         submenu6.add_command(label="Negro")
-        submenu6.add_command(label="Violeta")
+        submenu6.add_command(label="Violeta", command=self.letra_violeta)
         submenu6.add_command(label="Marron")
         opciones3.add_cascade(label="Color De Letra", menu= submenu6)
         menubar1.add_cascade(label="Aspectos", menu=opciones3)
@@ -72,6 +72,7 @@ class Aplicacion:
     def recibirCalculadora(self, lista_botones, datos):
         self.lista_botones = lista_botones
         self.datosEntry = datos
+        
      
     def tamano1(self):
         self.ventana1.geometry("432x250")
@@ -136,6 +137,24 @@ class Aplicacion:
         self.ventana1.configure
         for i in self.lista_botones:
             i.config( bg="CadetBlue1")
+            
+    def izquierda(self):
+        self.ventana1.configure
+        for i in self.datosEntry:
+            i.config(justify="left")
+        
+         
+            
+    def derecha(self):
+        self.ventana1.configure
+        self.datosEntry(justify="right")
+          
+          
+    def letra_violeta(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( fg= "pink")
+            
          
 
 
