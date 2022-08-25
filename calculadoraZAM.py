@@ -6,14 +6,14 @@ boton = ""
 
 class Calculadora:
     def __init__(self):
-        menu = Aplicacion()
-        ventana = menu.ventana1
+        self.menu = Aplicacion()
+        ventana = self.menu.ventana1
     #     ventana.configure(background="light pink")
         ventana.title("Calculadora ZAM")
     #     ventana.geometry("285x190")
         ventana.resizable(width=False, height=False)
         print("creando Calcu")
-        self.calculo = menu.calculo
+        self.calculo = self.menu.calculo
         self.datos = Entry(ventana, font=("Seven Segment",12), textvariable=self.calculo, justify="center")
         self.datos.grid(columnspan=15, ipadx=32)
         i = 0
@@ -39,15 +39,15 @@ class Calculadora:
             operador.grid(row=fil, column=3)
             self.lista_botones.append(operador)
        
-        resultado = Button(ventana, text=' = ', fg='black', bg='white',
+        self.resultado = Button(ventana, text=' = ', fg='black', bg='white',
                        command=self.igual, height=2, width=5)
-        resultado.grid(row=5, column=2)
+        self.resultado.grid(row=5, column=2)
         limpiar = Button(ventana, text='borrar', fg='red', bg='white',
                        command=self.limpiar, height=2, width=5)
         limpiar.grid(row=5, column='1')
-        self.lista_botones.append(resultado)
+        self.lista_botones.append(self.resultado)
         self.lista_botones.append(limpiar)
-        menu.recibirCalculadora(self.lista_botones, self.datos)
+        self.menu.recibirCalculadora(self.lista_botones, self.datos)
         ventana.mainloop()
     
     def digito(self, num):

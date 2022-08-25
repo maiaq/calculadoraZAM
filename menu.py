@@ -42,7 +42,8 @@ class Aplicacion:
         opciones3.add_cascade(label="Tamaño Letra", menu= submenu3)
         
         submenu4=tk.Menu(menubar1, tearoff=0)
-        submenu4.add_command(label="Derecha")
+        submenu4.add_command(label="Derecha", command=self.derecha)
+        submenu4.add_command(label="Centro")
         submenu4.add_command(label="Izquierda")
         opciones3.add_cascade(label="Direccion", menu= submenu4)
         
@@ -152,31 +153,50 @@ class Aplicacion:
         self.ventana1.configure
         for i in self.lista_botones:
             i.config( fg= "black")
+            
     def letra_azul(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( fg= "blue2")        
+            i.config( fg= "blue2")
+            
     def letra_marron(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( fg= "brown4")        
+            i.config( fg= "brown4")
+            
     def letra_verde(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( fg= "dark green")        
+            i.config( fg= "dark green")
+            
     def arial_letra(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( font= "arial")        
+            i.config( font= "arial")
+            
+            
     def serigrafia_letra(self):
         self.ventana1.configure
         for i in self.lista_botones:
             i.config( font= "Serigrafia")        
-    def letra_(self):
+    def izquierda(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( fg= "")        
-                                          
+            i.config(justify= "left")
+    def centro(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config(justify= "center")
+    def derecha(self):
+        self.ventana1.configure
+        for i in self.Entry:
+            i.config(justify= "right")         
+            
+    def tamaño_boton(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+        print(self.boton0.winfo_width, command=self.igual())
+        print(self.boton0.winfo_height())                                   
          
 
 
