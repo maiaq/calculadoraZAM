@@ -42,20 +42,23 @@ class Aplicacion:
         opciones3.add_cascade(label="Tamaño Letra", menu= submenu3)
         
         submenu4=tk.Menu(menubar1, tearoff=0)
-        submenu4.add_command(label="Derecha", command=self.derecha)
-        submenu4.add_command(label="Izquierda", command=self.izquierda)
+        submenu4.add_command(label="Derecha")
+        submenu4.add_command(label="Izquierda")
         opciones3.add_cascade(label="Direccion", menu= submenu4)
         
         submenu5=tk.Menu(menubar1, tearoff=0)
-        submenu5.add_command(label="letra1")
-        submenu5.add_command(label="letra2")
+        submenu5.add_command(label="Arial", command=self.arial_letra)
+        submenu5.add_command(label="Serigrafia", command=self.serigrafia_letra)
         submenu5.add_command(label="letra3")
         opciones3.add_cascade(label="Tipografia", menu= submenu5)
         
         submenu6=tk.Menu(menubar1, tearoff=0)
-        submenu6.add_command(label="Negro")
+        submenu6.add_command(label="Negro", command=self.letra_negro)
         submenu6.add_command(label="Violeta", command=self.letra_violeta)
-        submenu6.add_command(label="Marron")
+        submenu6.add_command(label="Marron", command=self.letra_marron)
+        submenu6.add_command(label="Azul", command=self.letra_azul)
+        submenu6.add_command(label="Verde", command=self.letra_verde)
+        submenu6.add_command(label="1")
         opciones3.add_cascade(label="Color De Letra", menu= submenu6)
         menubar1.add_cascade(label="Aspectos", menu=opciones3)
         
@@ -137,24 +140,43 @@ class Aplicacion:
         self.ventana1.configure
         for i in self.lista_botones:
             i.config( bg="CadetBlue1")
-            
-    def izquierda(self):
-        self.ventana1.configure
-        for i in self.datosEntry:
-            i.config(justify="left")
-        
-         
-            
-    def derecha(self):
-        self.ventana1.configure
-        self.datosEntry(justify="right")
+
           
           
     def letra_violeta(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( fg= "pink")
+            i.config( fg= "purple4")
             
+    def letra_negro(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( fg= "black")
+    def letra_azul(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( fg= "blue2")        
+    def letra_marron(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( fg= "brown4")        
+    def letra_verde(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( fg= "dark green")        
+    def arial_letra(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( font= "arial")        
+    def serigrafia_letra(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( font= "Serigrafia")        
+    def letra_(self):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( fg= "")        
+                                          
          
 
 
