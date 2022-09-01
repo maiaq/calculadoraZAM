@@ -17,21 +17,21 @@ class Aplicacion:
         opciones5 = tk.Menu(menubar1, tearoff=0)
         
         submenu2=tk.Menu(menubar1, tearoff=0 )
-        submenu2.add_command(label="Chico", command=partial(self.tamano1))
+        submenu2.add_command(label="Chico", command=self.tamano1)
         submenu2.add_command(label="Mediano", command=self.tamano2)
         submenu2.add_command(label="Grande", command=self.tamano3)
         opciones2.add_cascade(label="tamaños", menu= submenu2)
         
         submenu1=tk.Menu(menubar1, tearoff=0)
-        submenu1.add_command(label="mostaza", command=self.mostaza)
-        submenu1.add_command(label="celeste", command=self.celeste)
-        submenu1.add_command(label="rosa", command=self.rosa)
-        submenu1.add_command(label="rosy brown", command=self.rosy)
-        submenu1.add_command(label="khaki", command=self.khaki)
-        submenu1.add_command(label="light slate blue", command=self.lightslateblue)
-        submenu1.add_command(label="verde", command=self.verde)
-        submenu1.add_command(label="lavanda", command=self.lavanda)
-        submenu1.add_command(label="agua", command=self.agua)
+        submenu1.add_command(label="mostaza", command=partial(self.cambiar_color_letra, "orange3"))
+        submenu1.add_command(label="celeste", command=partial(self.cambiar_color_letra, "skyblue"))
+        submenu1.add_command(label="rosa", command=partial(self.cambiar_color_letra, "PaleVioletRed1"))
+        submenu1.add_command(label="rosy brown", command=partial(self.cambiar_color_letra, "rosy brown"))
+        submenu1.add_command(label="khaki", command=partial(self.cambiar_color_letra, "khaki"))
+        submenu1.add_command(label="light slate blue", command=partial(self.cambiar_color_letra, "light slate blue"))
+        submenu1.add_command(label="verde", command=partial(self.cambiar_color_letra, "DarkOliveGreen1"))
+        submenu1.add_command(label="lavanda", command=partial(self.cambiar_color_letra, "lavender"))
+        submenu1.add_command(label="agua", command=partial(self.cambiar_color_letra, "CadetBlue1"))
         opciones2.add_cascade(label="Colores", menu= submenu1)
         
         menubar1.add_cascade(label="Botones", menu=opciones2)
@@ -54,11 +54,11 @@ class Aplicacion:
         opciones3.add_cascade(label="Tipografia", menu= submenu5)
         
         submenu6=tk.Menu(menubar1, tearoff=0)
-        submenu6.add_command(label="Negro", command=self.letra_negro)
-        submenu6.add_command(label="Violeta", command=self.letra_violeta)
-        submenu6.add_command(label="Marron", command=self.letra_marron)
-        submenu6.add_command(label="Azul", command=self.letra_azul)
-        submenu6.add_command(label="Verde", command=self.letra_verde)
+        submenu6.add_command(label="Negro", command=partial(self.cambiar_color_letra, "black"))
+        submenu6.add_command(label="Violeta", command=partial(self.cambiar_color_letra, "purple4"))
+        submenu6.add_command(label="Marron", command=partial(self.cambiar_color_letra, "brown4"))
+        submenu6.add_command(label="Azul", command=partial(self.cambiar_color_letra, "blue2"))
+        submenu6.add_command(label="Verde", command=partial(self.cambiar_color_letra, "dark green"))
         submenu6.add_command(label="1")
         opciones3.add_cascade(label="Color De Letra", menu= submenu6)
         menubar1.add_cascade(label="Aspectos", menu=opciones3)
@@ -76,6 +76,8 @@ class Aplicacion:
     def recibirCalculadora(self, lista_botones, datos):
         self.lista_botones = lista_botones
         self.datosEntry = datos
+        
+    def cambiar_tamaño_boton(self):
         
      
     def tamano1(self):
@@ -96,89 +98,20 @@ class Aplicacion:
         self.datosEntry.grid(columnspan=800, ipadx=400)
         for i in self.lista_botones:
             i.config(height=7, width=19)
+            
+            
+    def cambiar_color_boton(self, color):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config( bg= color)
         
-    def mostaza(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="orange3")
 
-    def celeste(self):
+    def cambiar_color_letra(self, color):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( bg="skyblue")
-
-    def rosa(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="PaleVioletRed1")
-           
-    def rosy(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="rosy brown")
-
-    def khaki (self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="khaki")
-
-    def lightslateblue (self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="light slate blue")
+            i.config( fg= color)
             
-    def verde(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="DarkOliveGreen1")
-           
-    def lavanda(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="lavender")
-
-    def agua(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( bg="CadetBlue1")
-
-          
-          
-    def letra_violeta(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( fg= "purple4")
-            
-    def letra_negro(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( fg= "black")
-            
-    def letra_azul(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( fg= "blue2")
-            
-    def letra_marron(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( fg= "brown4")
-            
-    def letra_verde(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( fg= "dark green")
-            
-    def arial_letra(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( font= "arial")
-            
-            
-    def serigrafia_letra(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-            i.config( font= "Serigrafia")        
+        
     def izquierda(self):
         self.ventana1.configure
         for i in self.lista_botones:
@@ -192,11 +125,11 @@ class Aplicacion:
         for i in self.Entry:
             i.config(justify= "right")         
             
-    def tamaño_boton(self):
-        self.ventana1.configure
-        for i in self.lista_botones:
-        print(self.boton0.winfo_width, command=self.igual())
-        print(self.boton0.winfo_height())                                   
+    #def tamaño_boton(self):
+        #self.ventana1.configure
+        #or i in self.lista_botones:
+            #print(self.boton0.winfo_width, command=self.igual())
+        #print(self.boton0.winfo_height())                                   
          
 
 

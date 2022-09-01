@@ -18,7 +18,7 @@ class Calculadora:
         self.datos.grid(columnspan=15, ipadx=32)
         i = 0
         boton0 = Button(ventana, text=' 0 ', fg='black', bg='white',
-                         command=lambda: digito(0), height=2, width=5)
+                         command=lambda: self.digito(0), height=2, width=5)
         boton0.grid(row=5, column=0)
         self.lista_botones = [boton0]
         for fila in range(2,5):
