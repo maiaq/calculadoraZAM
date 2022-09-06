@@ -23,15 +23,15 @@ class Aplicacion:
         opciones2.add_cascade(label="tamaños", menu= submenu2)
         
         submenu1=tk.Menu(menubar1, tearoff=0)
-        submenu1.add_command(label="mostaza", command=partial(self.cambiar_color_letra, "orange3"))
-        submenu1.add_command(label="celeste", command=partial(self.cambiar_color_letra, "skyblue"))
-        submenu1.add_command(label="rosa", command=partial(self.cambiar_color_letra, "PaleVioletRed1"))
-        submenu1.add_command(label="rosy brown", command=partial(self.cambiar_color_letra, "rosy brown"))
-        submenu1.add_command(label="khaki", command=partial(self.cambiar_color_letra, "khaki"))
-        submenu1.add_command(label="light slate blue", command=partial(self.cambiar_color_letra, "light slate blue"))
-        submenu1.add_command(label="verde", command=partial(self.cambiar_color_letra, "DarkOliveGreen1"))
-        submenu1.add_command(label="lavanda", command=partial(self.cambiar_color_letra, "lavender"))
-        submenu1.add_command(label="agua", command=partial(self.cambiar_color_letra, "CadetBlue1"))
+        submenu1.add_command(label="mostaza", command=partial(self.cambiar_color_boton, "orange3"))
+        submenu1.add_command(label="celeste", command=partial(self.cambiar_color_boton, "skyblue"))
+        submenu1.add_command(label="rosa", command=partial(self.cambiar_color_boton, "PaleVioletRed1"))
+        submenu1.add_command(label="rosy brown", command=partial(self.cambiar_color_boton, "rosy brown"))
+        submenu1.add_command(label="khaki", command=partial(self.cambiar_color_boton, "khaki"))
+        submenu1.add_command(label="light slate blue", command=partial(self.cambiar_color_boton, "light slate blue"))
+        submenu1.add_command(label="verde", command=partial(self.cambiar_color_boton, "DarkOliveGreen1"))
+        submenu1.add_command(label="lavanda", command=partial(self.cambiar_color_boton, "lavender"))
+        submenu1.add_command(label="agua", command=partial(self.cambiar_color_boton, "CadetBlue1"))
         opciones2.add_cascade(label="Colores", menu= submenu1)
         
         menubar1.add_cascade(label="Botones", menu=opciones2)
@@ -42,14 +42,14 @@ class Aplicacion:
         opciones3.add_cascade(label="Tamaño Letra", menu= submenu3)
         
         submenu4=tk.Menu(menubar1, tearoff=0)
-        submenu4.add_command(label="Derecha", command=self.derecha)
-        submenu4.add_command(label="Centro")
-        submenu4.add_command(label="Izquierda")
+        submenu4.add_command(label="Derecha", command=partial(self.cambiar_direccion, "righ"))
+        submenu4.add_command(label="Centro", command=partial(self.cambiar_direccion, "center"))
+        submenu4.add_command(label="Izquierda", command=partial(self.cambiar_direccion, "left"))
         opciones3.add_cascade(label="Direccion", menu= submenu4)
         
         submenu5=tk.Menu(menubar1, tearoff=0)
-        submenu5.add_command(label="Arial", command=self.arial_letra)
-        submenu5.add_command(label="Serigrafia", command=self.serigrafia_letra)
+        submenu5.add_command(label="Arial", command=partial(self.cambiar_tipografia, "Arial"))
+        submenu5.add_command(label="Serigrafia", command=partial(self.cambiar_tipografia, "Serigrafia"))
         submenu5.add_command(label="letra3")
         opciones3.add_cascade(label="Tipografia", menu= submenu5)
         
@@ -75,10 +75,7 @@ class Aplicacion:
  
     def recibirCalculadora(self, lista_botones, datos):
         self.lista_botones = lista_botones
-        self.datosEntry = datos
-        
-    def cambiar_tamaño_boton(self):
-        
+        self.datosEntry = datos 
      
     def tamano1(self):
         self.ventana1.geometry("432x250")
@@ -99,6 +96,11 @@ class Aplicacion:
         for i in self.lista_botones:
             i.config(height=7, width=19)
             
+    def cambiar_tipografia(self, letra):
+        self.ventana1.configure
+        for i in self.lista_botones:
+            i.config(font= letra)
+            
             
     def cambiar_color_boton(self, color):
         self.ventana1.configure
@@ -111,25 +113,16 @@ class Aplicacion:
         for i in self.lista_botones:
             i.config( fg= color)
             
-        
-    def izquierda(self):
+    def cambiar_direccion(self, direcion):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config(justify= "left")
-    def centro(self):
+            i.config( justify= direcion)    
+    
+    def tamaño_boton(self):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config(justify= "center")
-    def derecha(self):
-        self.ventana1.configure
-        for i in self.Entry:
-            i.config(justify= "right")         
-            
-    #def tamaño_boton(self):
-        #self.ventana1.configure
-        #or i in self.lista_botones:
-            #print(self.boton0.winfo_width, command=self.igual())
-        #print(self.boton0.winfo_height())                                   
+            print(self.boton0.winfo_width, command=self.igual())
+        print(self.boton0.winfo_height())                                   
          
 
 
