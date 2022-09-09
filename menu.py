@@ -1,7 +1,9 @@
 import tkinter as tk
 import os
 import usuarios
+import tkinter.font as tkFont
 from functools import partial
+
 
 
 class Aplicacion:
@@ -20,25 +22,25 @@ class Aplicacion:
         submenu2.add_command(label="Chico", command=self.tamano1)
         submenu2.add_command(label="Mediano", command=self.tamano2)
         submenu2.add_command(label="Grande", command=self.tamano3)
-        opciones2.add_cascade(label="tamaños", menu= submenu2)
+        opciones2.add_cascade(label="Tamaños", menu= submenu2)
         
         submenu1=tk.Menu(menubar1, tearoff=0)
-        submenu1.add_command(label="mostaza", command=partial(self.cambiar_color_boton, "orange3"))
-        submenu1.add_command(label="celeste", command=partial(self.cambiar_color_boton, "skyblue"))
-        submenu1.add_command(label="rosa", command=partial(self.cambiar_color_boton, "PaleVioletRed1"))
-        submenu1.add_command(label="rosy brown", command=partial(self.cambiar_color_boton, "rosy brown"))
-        submenu1.add_command(label="khaki", command=partial(self.cambiar_color_boton, "khaki"))
-        submenu1.add_command(label="light slate blue", command=partial(self.cambiar_color_boton, "light slate blue"))
-        submenu1.add_command(label="verde", command=partial(self.cambiar_color_boton, "DarkOliveGreen1"))
-        submenu1.add_command(label="lavanda", command=partial(self.cambiar_color_boton, "lavender"))
-        submenu1.add_command(label="agua", command=partial(self.cambiar_color_boton, "CadetBlue1"))
+        submenu1.add_command(label="Mostaza", command=partial(self.cambiar_color_boton, "orange3"))
+        submenu1.add_command(label="Celeste", command=partial(self.cambiar_color_boton, "skyblue"))
+        submenu1.add_command(label="Rosa", command=partial(self.cambiar_color_boton, "PaleVioletRed1"))
+        submenu1.add_command(label="Rosy brown", command=partial(self.cambiar_color_boton, "rosy brown"))
+        submenu1.add_command(label="Khaki", command=partial(self.cambiar_color_boton, "khaki"))
+        submenu1.add_command(label="Light slate blue", command=partial(self.cambiar_color_boton, "light slate blue"))
+        submenu1.add_command(label="erde", command=partial(self.cambiar_color_boton, "DarkOliveGreen1"))
+        submenu1.add_command(label="Lavanda", command=partial(self.cambiar_color_boton, "lavender"))
+        submenu1.add_command(label="Agua", command=partial(self.cambiar_color_boton, "CadetBlue1"))
         opciones2.add_cascade(label="Colores", menu= submenu1)
         
         menubar1.add_cascade(label="Botones", menu=opciones2)
         
         submenu3=tk.Menu(menubar1, tearoff=0)
-        submenu3.add_command(label="Aumentar")
-        submenu3.add_command(label="Disminuir")
+        submenu3.add_command(label="Aumentar +", command=self.incrementar_letra)
+        submenu3.add_command(label="Disminuir -")
         opciones3.add_cascade(label="Tamaño Letra", menu= submenu3)
         
         submenu4=tk.Menu(menubar1, tearoff=0)
@@ -50,7 +52,7 @@ class Aplicacion:
         submenu5=tk.Menu(menubar1, tearoff=0)
         submenu5.add_command(label="Arial", command=partial(self.cambiar_tipografia, "Arial"))
         submenu5.add_command(label="Serigrafia", command=partial(self.cambiar_tipografia, "Serigrafia"))
-        submenu5.add_command(label="letra3")
+        submenu5.add_command(label="Letra3")
         opciones3.add_cascade(label="Tipografia", menu= submenu5)
         
         submenu6=tk.Menu(menubar1, tearoff=0)
@@ -64,13 +66,13 @@ class Aplicacion:
         menubar1.add_cascade(label="Aspectos", menu=opciones3)
         
         submenu7=tk.Menu(menubar1, tearoff=0 )
-        opciones4.add_cascade(label="resualtados", menu= submenu7)
-        menubar1.add_cascade(label="historial", menu=opciones4)
+        opciones4.add_cascade(label="Resultados", menu= submenu7)
+        menubar1.add_cascade(label="Historial", menu=opciones4)
         
         submenu8=tk.Menu(menubar1, tearoff=0)
-        opciones5 .add_command(label="cerrar sesion")
-        opciones5.add_command(label="iniciar sesion", command=usuarios.login)
-        opciones5.add_command(label="registrarse", command=usuarios.registro)                   
+        opciones5 .add_command(label="Cerrar sesion")
+        opciones5.add_command(label="Iniciar sesion", command=usuarios.login)
+        opciones5.add_command(label="Registrarse", command=usuarios.registro)                   
         menubar1.add_cascade(label="Usuario", menu=opciones5)
  
     def recibirCalculadora(self, lista_botones, datos):
@@ -113,18 +115,23 @@ class Aplicacion:
         for i in self.lista_botones:
             i.config( fg= color)
             
-    def cambiar_direccion(self, direcion):
+    def cambiar_direccion(self, direccion):
         self.ventana1.configure
         for i in self.lista_botones:
-            i.config( justify= direcion)    
+            i.config( justify= direccion)    
     
     def tamaño_boton(self):
         self.ventana1.configure
         for i in self.lista_botones:
             print(self.boton0.winfo_width, command=self.igual())
-        print(self.boton0.winfo_height())                                   
-         
+        print(self.boton0.winfo_height())
 
-
+    
+    def incrementar_letra (self):
+        self.ventana1.configure
+        fontsize =self.lista_botones
+        labelExample['text'] = fontsize+1
+        i.config(size=fontsize+2 )
+    
 if __name__ == "__main__":
     print("hola")
