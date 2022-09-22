@@ -14,7 +14,7 @@ class Calculadora:
         ventana.resizable(width=False, height=False)
         print("creando Calcu")
         self.calculo = self.menu.calculo
-        self.datos = Entry(ventana, font=("Seven Segment",12), textvariable=self.calculo, justify="center")
+        self.datos = Entry(ventana, font=("Seven Segment", 12), textvariable=self.calculo, justify="center")
         self.datos.grid(columnspan=15, ipadx=32)
         i = 0
         boton0 = Button(ventana, text=' 0 ', fg='black', bg='white',
@@ -28,7 +28,7 @@ class Calculadora:
                                command=partial(self.digito, i), height=2, width=5)
                 bot.grid(row=fila, column=columna)
                 self.lista_botones.append(bot)
-        digitos = ['+', '-', '*', '/']
+        digitos = ['➕', '➖', '✖️', '➗']
 
         
          
@@ -42,7 +42,7 @@ class Calculadora:
         self.resultado = Button(ventana, text=' = ', fg='black', bg='white',
                        command=self.igual, height=2, width=5)
         self.resultado.grid(row=5, column=2)
-        limpiar = Button(ventana, text='borrar', fg='red', bg='white',
+        limpiar = Button(ventana, text='❎', fg='red', bg='white',
                        command=self.limpiar, height=2, width=5)
         limpiar.grid(row=5, column='1')
         self.lista_botones.append(self.resultado)

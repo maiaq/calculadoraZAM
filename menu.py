@@ -80,23 +80,23 @@ class Aplicacion:
         self.datosEntry = datos 
      
     def tamano1(self):
-        self.ventana1.geometry("432x250")
+        self.ventana1.geometry()
         self.datosEntry.grid(columnspan=60, ipadx=110)
         for i in self.lista_botones:
             i.config(height=3, width=10)
             
     
     def tamano2(self):
-        self.ventana1.geometry("530x423")
+        self.ventana1.geometry()
         self.datosEntry.grid(columnspan=150, ipadx=160)
         for i in self.lista_botones:
             i.config(height=6, width=13)
             
     def tamano3(self):
-        self.ventana1.geometry("730x480")
+        self.ventana1.geometry()
         self.datosEntry.grid(columnspan=800, ipadx=400)
         for i in self.lista_botones:
-            i.config(height=7, width=19)
+            i.config(height=7, width=30)
             
     def cambiar_tipografia(self, letra):
         self.ventana1.configure
