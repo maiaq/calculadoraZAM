@@ -8,6 +8,7 @@ from functools import partial
 
 class Aplicacion:
     def __init__(self):
+        self.size = 10
         self.lista_botones = []
         self.ventana1=tk.Tk()
         self.calculo = tk.StringVar()
@@ -40,14 +41,8 @@ class Aplicacion:
         
         submenu3=tk.Menu(menubar1, tearoff=0)
         submenu3.add_command(label="Aumentar +", command=self.incrementar_letra)
-        submenu3.add_command(label="Disminuir -")
+        submenu3.add_command(label="Disminuir -", command=self.disminuir_letra)
         opciones3.add_cascade(label="Tamaño Letra", menu= submenu3)
-        
-        submenu4=tk.Menu(menubar1, tearoff=0)
-        submenu4.add_command(label="Derecha", command=partial(self.cambiar_direccion, "righ"))
-        submenu4.add_command(label="Centro", command=partial(self.cambiar_direccion, "center"))
-        submenu4.add_command(label="Izquierda", command=partial(self.cambiar_direccion, "left"))
-        opciones3.add_cascade(label="Direccion", menu= submenu4)
         
         submenu5=tk.Menu(menubar1, tearoff=0)
         submenu5.add_command(label="Arial", command=partial(self.cambiar_tipografia, "Arial"))
@@ -128,10 +123,16 @@ class Aplicacion:
 
     
     def incrementar_letra (self):
-        self.ventana1.configure
-        fontsize =self.lista_botones
-        labelExample['text'] = fontsize+1
-        i.config(size=fontsize+2 )
+        self.size += 2
+        for boton in self.lista_botones:
+            boton.config(font=("Arial", self.size))
+            
+            
+    def disminuir_letra(self):
+        self.size -= 2
+        for boton in self.lista_botones:
+            boton.config(font=("Arial", self.size))
+        
     
 if __name__ == "__main__":
     print("hola")

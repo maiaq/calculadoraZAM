@@ -7,6 +7,7 @@ boton = ""
 class Calculadora:
     def __init__(self):
         self.menu = Aplicacion()
+        self.size = 10
         ventana = self.menu.ventana1
     #     ventana.configure(background="light pink")
         ventana.title("Calculadora ZAM")
@@ -17,32 +18,32 @@ class Calculadora:
         self.datos = Entry(ventana, font=("Seven Segment", 12), textvariable=self.calculo, justify="center")
         self.datos.grid(columnspan=15, ipadx=32)
         i = 0
-        boton0 = Button(ventana, text=' 0 ', fg='black', bg='white',
+        boton0 = Button(ventana, text=' 0 ', font=("Arial", self.size), fg='black', bg='white',
                          command=lambda: self.digito(0), height=2, width=5)
         boton0.grid(row=5, column=0)
         self.lista_botones = [boton0]
         for fila in range(2,5):
             for columna in range(0,3):
                 i += 1
-                bot = Button(ventana, text=' ' + str(i) + ' ', fg='black', bg='white',
+                bot = Button(ventana, font=("Arial", self.size), text=' ' + str(i) + ' ', fg='black', bg='white',
                                command=partial(self.digito, i), height=2, width=5)
                 bot.grid(row=fila, column=columna)
                 self.lista_botones.append(bot)
-        digitos = ['➕', '➖', '✖️', '➗']
+        digitos = ['+', '-', '*', '/']
 
         
          
         
         for fil in range(2,6):
-            operador = Button(ventana, text=' ' + digitos[fil-2] + ' ', fg='black', bg='white',
+            operador = Button(ventana, font=("Arial", self.size), text=' ' + digitos[fil-2] + ' ', fg='black', bg='white',
                          command=partial(self.digito, digitos[fil-2]), height=2, width=5)
             operador.grid(row=fil, column=3)
             self.lista_botones.append(operador)
        
-        self.resultado = Button(ventana, text=' = ', fg='black', bg='white',
+        self.resultado = Button(ventana, font=("Arial", self.size), text=' = ', fg='black', bg='white',
                        command=self.igual, height=2, width=5)
         self.resultado.grid(row=5, column=2)
-        limpiar = Button(ventana, text='❎', fg='red', bg='white',
+        limpiar = Button(ventana, font=("Arial", self.size), text='❎', fg='red', bg='white',
                        command=self.limpiar, height=2, width=5)
         limpiar.grid(row=5, column='1')
         self.lista_botones.append(self.resultado)
@@ -77,7 +78,7 @@ class Calculadora:
     
 if __name__ == "__main__":
     calcu = Calculadora()
-
+    
     
 
 
