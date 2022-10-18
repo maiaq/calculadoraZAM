@@ -62,7 +62,7 @@ class Aplicacion:
         
         submenu7=tk.Menu(menubar1, tearoff=0 )
         opciones4.add_cascade(label="Resultados", menu= submenu7)
-        menubar1.add_cascade(label="Historial", menu=opciones4)
+        menubar1.add_cascade(label="Historial", commad=partial(self.ventana_historial))
         
         submenu8=tk.Menu(menubar1, tearoff=0)
         opciones5 .add_command(label="Cerrar sesion")
@@ -132,7 +132,12 @@ class Aplicacion:
         self.size -= 2
         for boton in self.lista_botones:
             boton.config(font=("Arial", self.size))
-        
+            
+    def ventana_historial(self):
+        for i in self.lista_botones:
+            self.historial.append(total)
+        print(self.historial)
+                
     
 if __name__ == "__main__":
     print("hola")

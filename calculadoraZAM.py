@@ -8,6 +8,7 @@ class Calculadora:
     def __init__(self):
         self.menu = Aplicacion()
         self.size = 10
+        self.historial = []
         ventana = self.menu.ventana1
     #     ventana.configure(background="light pink")
         ventana.title("Calculadora ZAM")
@@ -61,6 +62,8 @@ class Calculadora:
             global boton
             total = str(eval(boton))
             self.calculo.set(total)
+            self.historial.append(total)
+            print(self.historial)
             boton = ""
         except:
             self.calculo.set(" error ")
