@@ -63,6 +63,7 @@ class Calculadora:
             total = str(eval(boton))
             self.calculo.set(total)
             self.historial.append(total)
+            self.menu.agregar_historial(total)
             print(self.historial)
             boton = ""
         except:

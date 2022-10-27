@@ -9,6 +9,7 @@ from functools import partial
 class Aplicacion:
     def __init__(self):
         self.size = 10
+        self.historial = []
         self.lista_botones = []
         self.ventana1=tk.Tk()
         self.calculo = tk.StringVar()
@@ -18,6 +19,7 @@ class Aplicacion:
         opciones3 = tk.Menu(menubar1, tearoff=0)
         opciones4 = tk.Menu(menubar1, tearoff=0)
         opciones5 = tk.Menu(menubar1, tearoff=0)
+        self.opciones6 = tk.Menu(menubar1, tearoff=0)
         
         submenu2=tk.Menu(menubar1, tearoff=0 )
         submenu2.add_command(label="Chico", command=self.tamano1)
@@ -62,14 +64,30 @@ class Aplicacion:
         
         submenu7=tk.Menu(menubar1, tearoff=0 )
         opciones4.add_cascade(label="Resultados", menu= submenu7)
-        menubar1.add_cascade(label="Historial", commad=partial(self.ventana_historial))
+        
         
         submenu8=tk.Menu(menubar1, tearoff=0)
-        opciones5 .add_command(label="Cerrar sesion")
+        opciones5.add_command(label="Cerrar sesion")
         opciones5.add_command(label="Iniciar sesion", command=usuarios.login)
         opciones5.add_command(label="Registrarse", command=usuarios.registro)                   
         menubar1.add_cascade(label="Usuario", menu=opciones5)
+        
+        submenu9=tk.Menu(menubar1, tearoff=0)
+        menubar1.add_cascade(label="historial", menu=self.opciones6)
+        
+        
+        
+        
+    def mostrar_resultado(self, Entry):
+        self.opciones6.add_command(label=resultado, command=partial(self.cargar_resultado, resultado))
+        
+    def agregar_historial(self, resultado):
+        self.opciones6.add_command(label=resultado, command=partial(self.cargar_resultado, resultado))
  
+    
+    def cargar_resultado(self, resultado):
+        print (resultado)
+    
     def recibirCalculadora(self, lista_botones, datos):
         self.lista_botones = lista_botones
         self.datosEntry = datos 
@@ -133,11 +151,7 @@ class Aplicacion:
         for boton in self.lista_botones:
             boton.config(font=("Arial", self.size))
             
-    def ventana_historial(self):
-        for i in self.lista_botones:
-            self.historial.append(total)
-        print(self.historial)
-                
+    
     
 if __name__ == "__main__":
     print("hola")
