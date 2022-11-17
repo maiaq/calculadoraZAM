@@ -17,7 +17,7 @@ class Calculadora:
         print("creando Calcu")
         self.calculo = self.menu.calculo
         self.datos = Entry(ventana, font=("Seven Segment", 12), textvariable=self.calculo, justify="center")
-        self.datos.grid(columnspan=15, ipadx=32)
+        self.datos.grid(columnspan=15, ipadx=22)
         i = 0
         boton0 = Button(ventana, text=' 0 ', font=("Arial", self.size), fg='black', bg='white',
                          command=lambda: self.digito(0), height=2, width=5)

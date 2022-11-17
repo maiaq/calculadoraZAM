@@ -66,11 +66,7 @@ class Aplicacion:
         opciones4.add_cascade(label="Resultados", menu= submenu7)
         
         
-        submenu8=tk.Menu(menubar1, tearoff=0)
-        opciones5.add_command(label="Cerrar sesion")
-        opciones5.add_command(label="Iniciar sesion", command=usuarios.login)
-        opciones5.add_command(label="Registrarse", command=usuarios.registro)                   
-        menubar1.add_cascade(label="Usuario", menu=opciones5)
+      
         
         submenu9=tk.Menu(menubar1, tearoff=0)
         menubar1.add_cascade(label="historial", menu=self.opciones6)
