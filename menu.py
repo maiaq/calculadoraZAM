@@ -34,7 +34,7 @@ class Aplicacion:
         submenu1.add_command(label="Rosy brown", command=partial(self.cambiar_color_boton, "rosy brown"))
         submenu1.add_command(label="Khaki", command=partial(self.cambiar_color_boton, "khaki"))
         submenu1.add_command(label="Light slate blue", command=partial(self.cambiar_color_boton, "light slate blue"))
-        submenu1.add_command(label="erde", command=partial(self.cambiar_color_boton, "DarkOliveGreen1"))
+        submenu1.add_command(label="Verde", command=partial(self.cambiar_color_boton, "DarkOliveGreen1"))
         submenu1.add_command(label="Lavanda", command=partial(self.cambiar_color_boton, "lavender"))
         submenu1.add_command(label="Agua", command=partial(self.cambiar_color_boton, "CadetBlue1"))
         opciones2.add_cascade(label="Colores", menu= submenu1)
@@ -49,7 +49,6 @@ class Aplicacion:
         submenu5=tk.Menu(menubar1, tearoff=0)
         submenu5.add_command(label="Arial", command=partial(self.cambiar_tipografia, "Arial"))
         submenu5.add_command(label="Serigrafia", command=partial(self.cambiar_tipografia, "Serigrafia"))
-        submenu5.add_command(label="Letra3")
         opciones3.add_cascade(label="Tipografia", menu= submenu5)
         
         submenu6=tk.Menu(menubar1, tearoff=0)
@@ -58,7 +57,6 @@ class Aplicacion:
         submenu6.add_command(label="Marron", command=partial(self.cambiar_color_letra, "brown4"))
         submenu6.add_command(label="Azul", command=partial(self.cambiar_color_letra, "blue2"))
         submenu6.add_command(label="Verde", command=partial(self.cambiar_color_letra, "dark green"))
-        submenu6.add_command(label="1")
         opciones3.add_cascade(label="Color De Letra", menu= submenu6)
         menubar1.add_cascade(label="Aspectos", menu=opciones3)
         
